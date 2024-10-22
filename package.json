@@ -18,7 +18,9 @@
     "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --threads=false",
     "test:e2e": "vitest run --config ./vitest.config.e2e.mts",
     "up-mac": "docker-compose -f docker-compose-mac.yml up -d",
-    "up-wsl": "docker-compose -f docker-compose-wsl.yml up -d"
+    "up-wsl": "docker-compose -f docker-compose-wsl.yml up -d",
+    "down-mac": "docker-compose -f docker-compose-mac.yml down",
+    "down-wsl": "docker-compose -f docker-compose-wsl.yml down"
   },
   "engines": {
     "node": "20"
@@ -43,6 +45,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
+    "@faker-js/faker": "9.0.3",
     "@nestjs/cli": "10.4.5",
     "@nestjs/schematics": "10.1.4",
     "@nestjs/testing": "10.4.4",
