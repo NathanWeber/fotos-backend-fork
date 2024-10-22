@@ -1,11 +1,12 @@
 @BASE_URL = http://localhost:3333
-
+@authToken = {{authToken}}
 # @name create_client
 POST {{BASE_URL}}/client
+Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
-  "name": "Nathan",
-  "email": "teste@gmail.com",
+  "name": "John Doe",
+  "email": "johndoe@mail.com",
   "phoneNumber": "99999999999"
 }

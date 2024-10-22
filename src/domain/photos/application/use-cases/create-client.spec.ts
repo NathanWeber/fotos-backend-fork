@@ -16,8 +16,9 @@ describe('Create client', () => {
 
   it('should be able to create a new client', async () => {
     const result = await sut.execute({
-      name: 'Nathan',
-      email: 'teste@gmail.com',
+      photographerId: '1',
+      name: 'John Doe',
+      email: 'johndoe@mail.com',
       phoneNumber: '99999999999',
     })
 
