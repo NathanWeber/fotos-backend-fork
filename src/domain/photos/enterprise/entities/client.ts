@@ -3,6 +3,7 @@ import { EntityID } from '@/core/entities/entity-id'
 import { Optional } from '@/core/types/optional'
 
 interface ClientProps {
+  photographerId: EntityID
   name: string
   email: string
   phoneNumber?: string
@@ -12,6 +13,10 @@ interface ClientProps {
 }
 
 export class Client extends Entity<ClientProps> {
+  get photographerId() {
+    return this.props.photographerId
+  }
+
   get name(): string {
     return this.props.name
   }

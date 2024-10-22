@@ -9,10 +9,14 @@ import { PrismaClientMapper } from '../mappers/prisma-client-mapper'
 export class PrismaClientRepository implements ClientRepository {
   constructor(private prisma: PrismaService) {}
 
-  async findByEmail(email: string): Promise<Client | null> {
-    const client = await this.prisma.client.findUnique({
+  async findByPhotographerIdAndEmail(
+    photographerId: string,
+    email: string
+  ): Promise<Client | null> {
+    const client = await this.prisma.client.findFirst({
       where: {
         email,
+        photographerId,
       },
     })
 

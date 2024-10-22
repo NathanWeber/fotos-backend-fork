@@ -4,8 +4,15 @@ import { AbstractRepositoryImpl } from '@test/repositories/abstract-repository-i
 export class InMemoryClientRepository<
   T extends Client,
 > extends AbstractRepositoryImpl<T> {
-  async findByEmail(email: string): Promise<T | null> {
-    const item = this.items.find(item => item.email.toString() === email)
+  async findByPhotographerIdAndEmail(
+    photographerId: string,
+    email: string
+  ): Promise<T | null> {
+    const item = this.items.find(
+      item =>
+        item.email === email &&
+        item.photographerId.toString() === photographerId
+    )
     return item || null
   }
 }

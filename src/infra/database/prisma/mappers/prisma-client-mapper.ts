@@ -6,6 +6,7 @@ export class PrismaClientMapper {
   static toDomain(raw: PrismaClient): Client {
     return Client.create(
       {
+        photographerId: new EntityID(raw.photographerId),
         name: raw.name,
         email: raw.email,
         phoneNumber: raw.phoneNumber,
@@ -20,6 +21,7 @@ export class PrismaClientMapper {
   static toPrisma(client: Client): Prisma.ClientUncheckedCreateInput {
     return {
       id: client.id.toString(),
+      photographerId: client.photographerId.toString(),
       name: client.name,
       email: client.email,
       phoneNumber: client.phoneNumber,
