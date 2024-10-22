@@ -2,7 +2,7 @@ import { Entity } from '@/core/entities/entity'
 import { EntityID } from '@/core/entities/entity-id'
 import { Optional } from '@/core/types/optional'
 
-interface PhotographerProps {
+export interface PhotographerProps {
   name: string
   email: string
   password: string
