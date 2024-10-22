@@ -9,6 +9,8 @@ import { NestRegisterPhotographerUseCase } from '../nest/use-cases/register-phot
 import { RegisterPhotographerController } from './controllers/register-photographer.controller'
 import { NestCreateClientUseCase } from '../nest/use-cases/create-client'
 import { CreateClientController } from './controllers/create-client.controller'
+import { NestAuthenticateUseCase } from '../nest/use-cases/authenticate'
+import { AuthenticateController } from './controllers/authenticate-controller'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -16,11 +18,13 @@ import { CreateClientController } from './controllers/create-client.controller'
     HealthController,
     RegisterPhotographerController,
     CreateClientController,
+    AuthenticateController,
   ],
   providers: [
     NestHealthUseCase,
     NestRegisterPhotographerUseCase,
     NestCreateClientUseCase,
+    NestAuthenticateUseCase,
   ],
 })
 export class HttpModule {}
