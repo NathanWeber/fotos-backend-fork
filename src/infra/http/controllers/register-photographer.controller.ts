@@ -5,7 +5,6 @@ import {
   Controller,
   HttpCode,
   Post,
-  UsePipes,
 } from '@nestjs/common'
 import { z } from 'zod'
 import { Public } from '@/infra/auth/public'
@@ -19,6 +18,8 @@ const registerPhotographerBodySchema = z.object({
   password: z.string(),
 })
 
+const bodyValidationPipe = new ZodValidationPipe(registerPhotographerBodySchema)
+
 type RegisterPhotographerBodySchema = z.infer<
   typeof registerPhotographerBodySchema
 >
@@ -30,8 +31,7 @@ export class RegisterPhotographerController {
 
   @Post()
   @HttpCode(201)
-  @UsePipes(new ZodValidationPipe(registerPhotographerBodySchema))
-  async handle(@Body() body: RegisterPhotographerBodySchema) {
+  async handle(@Body(bodyValidationPipe) body: RegisterPhotographerBodySchema) {
     const { name, email, password } = body
 
     const result = await this.sut.execute({
